@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const serverless = require('serverless-http');
 
 const tshirtDatabase = {};
 
@@ -47,4 +48,4 @@ app.post('/config', (req, res) => {
     <p><a href="/api/?id=${id}" target="_blank">Scanner ton QR maintenant</a></p>`);
 });
 
-module.exports = app;
+module.exports = serverless(app);
